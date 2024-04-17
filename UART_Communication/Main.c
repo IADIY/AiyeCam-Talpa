@@ -48,8 +48,7 @@ extern unsigned long intToBcd(int input);
 /**************************************************************************
  *	Global Data
  **************************************************************************/
-static const char HOST_SECTION host_ver[] = "HOST-"__DATE__
-											"-"__TIME__;
+static const char HOST_SECTION host_ver[] = "HOST-"__DATE__"-"__TIME__;
 
 static TaskHandle_t xHandle_Win = NULL;
 static TaskHandle_t xHandle_User = NULL;
