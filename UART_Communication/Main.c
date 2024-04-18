@@ -56,15 +56,11 @@ u32 Sys_Tick = 0;
 u8 task_init = FALSE;
 u8 process_done = 1;
 
-
 /**************************************************************************
  *	Function
  **************************************************************************/
 
 static void custom_gpio_2(void){
-	sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
-	gpio_set_dir(IOA3, GPIO_INPUT_DIRECTION);
-	
 	// Flash
 	sys_set_padshare(IOB1, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB2, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
@@ -72,40 +68,44 @@ static void custom_gpio_2(void){
 	sys_set_padshare(IOB4, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB5, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB6, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
-
+	//UART
 	sys_set_padshare(IOA6, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA6, GPIO_OUTPUT_DIRECTION);
 	sys_set_padshare(IOA5, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA5, GPIO_INPUT_DIRECTION);
 	uart_init(115200,UART_LCR_8N1,2);
+
+  	
+  	sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
+	gpio_set_dir(IOA3, GPIO_INPUT_DIRECTION);
 	
 	sys_set_padshare(IOA0, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA0, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOA1, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA1, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOA2, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA2, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOB7, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOB7, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC0, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC0, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC1, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC1, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC2, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC2, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC3, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC4, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC4, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC5, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC5, GPIO_INPUT_DIRECTION);
 }
