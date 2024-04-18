@@ -1,8 +1,3 @@
-
-/*                                                                                                */
-/*           Copyright (C) 2018 NeuronBasic Co., Ltd. All rights reserved.                        */
-/*                                                                                                */
-/*------------------------------------------------------------------------------------------------*/
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -34,8 +29,6 @@ extern unsigned long intToBcd(int input);
  **************************************************************************/
 
 //#define image_viewer
-//#define Send_RAW_data
-
 
 /**************************************************************************
  *	Image Processing constant
@@ -63,7 +56,6 @@ u32 Sys_Tick = 0;
 u8 task_init = FALSE;
 u8 process_done = 1;
 
-//uint8_t histogram_y[320];
 
 /**************************************************************************
  *	Function
@@ -72,11 +64,7 @@ u8 process_done = 1;
 static void custom_gpio_2(void){
 	sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA3, GPIO_INPUT_DIRECTION);
-
-	//sys_set_padshare(IOA4, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
-	//gpio_set_dir(IOA4, GPIO_INPUT_DIRECTION);
-
-
+	
 	// Flash
 	sys_set_padshare(IOB1, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB2, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
@@ -100,10 +88,6 @@ static void custom_gpio_2(void){
 	sys_set_padshare(IOA2, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA2, GPIO_INPUT_DIRECTION);
 
-	sys_set_padshare(IOA6, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
-	gpio_set_dir(IOA6, GPIO_OUTPUT_DIRECTION);
-	uart_init(115200,UART_LCR_8N1,2);
-
 	sys_set_padshare(IOB7, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOB7, GPIO_INPUT_DIRECTION);
 
@@ -124,7 +108,6 @@ static void custom_gpio_2(void){
 
 	sys_set_padshare(IOC5, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC5, GPIO_INPUT_DIRECTION);
-//#endif
 }
 
 static int sensor_setup(void)
@@ -138,12 +121,10 @@ static int sensor_setup(void)
 	unsigned int aeg_ver_len;
 	aeg_ver_len = sensor_aeg_get_version(pinfo, 64);
 
-	if (aeg_ver_len > 0)
-	{
+	if (aeg_ver_len > 0){
 		DEBUG(DEBUG_INFO, "AEG Version: %s", pinfo);
 	}
-	else
-	{
+	else{
 		DEBUG(DEBUG_ERROR, "AEG Version is Error!!!");
 	}
 	nb_free(pinfo);
@@ -154,69 +135,26 @@ static int sensor_setup(void)
 	return FALSE;
 }
 
-/*
- Win_Task loop
-*/
-static void Win_Task(void *parameters)
-{
-	sensor_setup();
-	sensor_mem_init(0);
-	uint8_t* buf;
-	u8 disable_motion = 0;
-	u8 found_mode_exit = 0;
-	for (;;)
-	{
-		//if (detect_enable && task_init)
-		//{
-			if (md_wait_for_frame_finish(0) == 0) // True if in frame-end, else False. // Timeout in MS
-			{
-				sensor_aeg_brightness(120);
-				//sensor_set_exposure_row(160);
-			}
-		//}
-		vTaskDelay(TASK_DELAY_TIME);
-	}
-	vTaskDelete(NULL);
-}
-
-
 static void User_Task(void *parameters){
     u32 now_tick = 0;
     uint8_t ret = 0;
     uint8_t* buf;
     for (;;){
         if (task_init){
-			uart_ctrl(2);
-			uart_ctrl(1);
-			printf("loop:%ld\n", now_tick);
-			int tstc = uart_tstc();
-			if(tstc){
-				char data = uart_getc();
-				printf("data = %c\n", data);	
-			}
-			uart_ctrl(0);
+		uart_ctrl(2);
+		uart_ctrl(1);
+		printf("loop:%ld\n", now_tick);
+		int tstc = uart_tstc();
+		if(tstc){
+			char data = uart_getc();
+			printf("data = %c\n", data);	
+		}
+		uart_ctrl(0);
         }
-		now_tick += 1;
+	now_tick += 1;
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
     vTaskDelete(NULL);
-}
-
-static void winTaskInit(void)
-{
-	BaseType_t xTask_Win;
-	xTask_Win = xTaskCreate(
-		Win_Task,
-		"Win_Task",
-		configMINIMAL_STACK_SIZE * 10,
-		NULL,
-		tskIDLE_PRIORITY + 5,
-		&xHandle_Win);
-	if (xTask_Win != pdPASS)
-	{
-		DEBUG(DEBUG_ERROR, "Win_Task is NULL!");
-		exit(FALSE);
-	}
 }
 
 static void userTaskInit(void)
@@ -239,7 +177,6 @@ static void userTaskInit(void)
 int main(void)
 {
 	SetDebugLevel(DEBUG_LEVEL, DETAIL_INFO_SUPPORT);
-
 	struct Init_Config *BasicInitConfig = get_init_config();
 	BasicInitConfig->BaudRate = UART_DEFAULT_BAUD_RATE_INDEX;
 	BasicInitConfig->SPISpeed = FLASH_SPI_SPEED;
@@ -254,10 +191,7 @@ int main(void)
 #ifndef image_viewer
 	custom_gpio_2();
 #endif
-	//winTaskInit();
-	
 	userTaskInit();
-	
 	task_init = TRUE;
 	return 0;
 }
