@@ -137,8 +137,6 @@ static int sensor_setup(void)
 
 static void User_Task(void *parameters){
     u32 now_tick = 0;
-    uint8_t ret = 0;
-    uint8_t* buf;
     for (;;){
         if (task_init){
 		uart_ctrl(2);
