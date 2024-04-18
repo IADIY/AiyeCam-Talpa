@@ -17,11 +17,6 @@
 #define TRUE 1
 #define FALSE 0
 
-#define C1 (5.16e-05f)
-#define C2 (0.008801f)
-#define C3 (0.4602f)
-#define C4 (9.72f)
-
 /**************************************************************************
  *	External Function
  **************************************************************************/
@@ -33,7 +28,7 @@ extern unsigned long intToBcd(int input);
  *	Debug Configuration
  **************************************************************************/
 
-#define image_viewer
+//#define image_viewer
 
 /**************************************************************************
  *	Image Processing constant
@@ -73,16 +68,17 @@ static void custom_gpio_2(void){
 	sys_set_padshare(IOB4, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB5, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOB6, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
-
+	//UART
 	sys_set_padshare(IOA6, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA6, GPIO_OUTPUT_DIRECTION);
 	sys_set_padshare(IOA5, PAD_FUNC0, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA5, GPIO_INPUT_DIRECTION);
 	uart_init(115200,UART_LCR_8N1,2);
 
-  	//UART
+  	
   	sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA3, GPIO_INPUT_DIRECTION);
+	
 	sys_set_padshare(IOA0, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA0, GPIO_INPUT_DIRECTION);
 	
@@ -188,4 +184,3 @@ int main(void){
 	task_init = TRUE;
 	return 0;
 }
-
