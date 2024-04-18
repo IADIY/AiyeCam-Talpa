@@ -80,39 +80,38 @@ static void custom_gpio_2(void){
 	gpio_set_dir(IOA5, GPIO_INPUT_DIRECTION);
 	uart_init(115200,UART_LCR_8N1,2);
 
-  //UART
-  sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
+  	//UART
+  	sys_set_padshare(IOA3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA3, GPIO_INPUT_DIRECTION);
 	sys_set_padshare(IOA0, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA0, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOA1, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA1, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOA2, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOA2, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOB7, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOB7, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC0, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC0, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC1, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC1, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC2, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC2, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC3, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC3, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC4, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC4, GPIO_INPUT_DIRECTION);
-
+	
 	sys_set_padshare(IOC5, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS);
 	gpio_set_dir(IOC5, GPIO_INPUT_DIRECTION);
-//#endif
 }
 
 static int sensor_setup(void)
@@ -126,12 +125,10 @@ static int sensor_setup(void)
 	unsigned int aeg_ver_len;
 	aeg_ver_len = sensor_aeg_get_version(pinfo, 64);
 
-	if (aeg_ver_len > 0)
-	{
+	if (aeg_ver_len > 0){
 		DEBUG(DEBUG_INFO, "AEG Version: %s", pinfo);
 	}
-	else
-	{
+	else{
 		DEBUG(DEBUG_ERROR, "AEG Version is Error!!!");
 	}
 	nb_free(pinfo);
@@ -147,10 +144,10 @@ static void User_Task(void *parameters){
 	gpio_set_dir(21, 1);
 	for (;;){
 		if (task_init){
-				gpio_set_value(21, 1);
-				vTaskDelay(pdMS_TO_TICKS(1000));
-				gpio_set_value(21, 0);
-				vTaskDelay(pdMS_TO_TICKS(1000));
+			gpio_set_value(21, 1);
+			vTaskDelay(pdMS_TO_TICKS(1000));
+			gpio_set_value(21, 0);
+			vTaskDelay(pdMS_TO_TICKS(1000));
 		}
 	}
 	vTaskDelete(NULL);
