@@ -137,12 +137,12 @@ static int sensor_setup(void)
 
 static void User_Task(void *parameters){
 	sys_set_padshare(IOC5, PAD_FUNC5, PAD_PULL_NO_PULL, PAD_STRENGTH_DIS); //GPIO Control
-	gpio_set_dir(21, 1);
+	gpio_set_dir(IOC5, 1);
 	for (;;){
 		if (task_init){
-			gpio_set_value(21, 1);
+			gpio_set_value(IOC5, 1);
 			vTaskDelay(pdMS_TO_TICKS(1000));
-			gpio_set_value(21, 0);
+			gpio_set_value(IOC5, 0);
 			vTaskDelay(pdMS_TO_TICKS(1000));
 		}
 	}
