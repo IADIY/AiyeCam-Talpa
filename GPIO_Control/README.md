@@ -1,1 +1,1 @@
-Toggle LED using gpio pin at a 1 Hz frequency.
+Toggle LED using gpio pin at 1 Hz frequency.
