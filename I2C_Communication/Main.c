@@ -136,7 +136,8 @@ static int sensor_setup(void)
 }
 
 static void User_Task(void *parameters){
-	#define I2C_slave_address 0x51 //adjustable
+	#define I2C_slave_address 0x51 
+	//adjustable slave address
 	sys_set_padshare(IOA3, PAD_FUNC1, PAD_PULL_UP, PAD_STRENGTH_DIS);
 	sys_set_padshare(IOA4, PAD_FUNC1, PAD_PULL_UP, PAD_STRENGTH_DIS);
 	i2c_init();
