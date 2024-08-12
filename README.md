@@ -1,1 +1,1 @@
-# The Software Development Platform for AiyeCam-Talpa Series Product.
+# The Software Development Platform for AiyeCam-Talpa.
