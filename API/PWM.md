@@ -10,7 +10,7 @@
     - ```PWM6```
     - ```PWM7```
 
-## `void pwm_init(int pin_no, int out_cfg)` <!--DONE-->
+## `int pwm_init(int pin_no, int out_cfg)` <!--DONE-->
 
 ### Description
 
