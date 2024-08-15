@@ -69,7 +69,7 @@ Initializes a timer with specified settings.
 
 ### Note
 
-- prescale divider: 0/1: no clk output;other:sys_clk/div
+- The divider value `div` should be greater than 2.
 
 ---
 
