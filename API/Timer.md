@@ -59,7 +59,7 @@ Initializes a timer with specified settings.
 
 - **`tim`**: Timer ID.
 - **`mode`**: Timer mode.
-- **`div`**: Divider value.
+- **`div`**: Divisor value.
 - **`count`**: Initial count value.
 - **`isr`**: Interrupt service routine for the timer.
 
@@ -69,7 +69,7 @@ Initializes a timer with specified settings.
 
 ### Note
 
-- The divider value `div` should be greater than 2.
+- The divisor value `div` should be greater than 2.
 
 ---
 
