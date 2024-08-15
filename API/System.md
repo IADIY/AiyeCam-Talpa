@@ -78,7 +78,7 @@ Set I2C or RTC hardware module to reset state then back to normal state. Delay a
 
 ### Description
 
-Sets the divisor for hardware module.
+Sets the divisor for the hardware module.
 
 ### Parameters
 
@@ -95,7 +95,7 @@ Sets the divisor for hardware module.
     - ```SYS_DIV_WDT```
     - ```SYS_DIV_QSPI```
     - ```SYS_DIV_GPIO_DB```
-- **`div`**: The divisor value.
+- **`div`**: The divisor value. It should be greater than 2.
 
 ### Return
 
