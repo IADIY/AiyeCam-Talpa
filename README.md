@@ -5,3 +5,5 @@
 |----------|------|
 |System    |`Done`|
 |UART      |`Done`|
+|PWM       |`Done`|
+|TIMER     |`Done`|
