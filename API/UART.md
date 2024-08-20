@@ -95,7 +95,7 @@ Tests if a character is available to read from UART.
 
 ### Return
 
-- **`int`**: 1 if a character is available, 0 otherwise.
+- **`int`**: 1 for a character available, 0 for not available.
 
 ### Note
 
