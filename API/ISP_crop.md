@@ -16,7 +16,7 @@ Initializes the ISP cropping module.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -39,7 +39,7 @@ Configures the cropping window.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -60,7 +60,7 @@ Enables or disables the cropping module and cropping functionality.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -80,7 +80,7 @@ Gets the output width after cropping.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -100,4 +100,4 @@ Gets the output height after cropping.
 
 ### Note
 
-- Note
+- None
