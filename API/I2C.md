@@ -16,7 +16,7 @@ Initializes the I2C subsystem.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -39,7 +39,7 @@ Sets the I2C speed mode.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -64,7 +64,7 @@ Performs an I2C transfer.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -88,7 +88,7 @@ Writes a value to an I2C register.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -112,7 +112,7 @@ Writes a group of registers on an I2C device.
 
 ### Note
 
-- Note
+- None
 
 ---
 
@@ -134,7 +134,7 @@ Reads a single byte from an I2C register.
 
 ### Note
 
-- Note
+- None
 
 ---
 
