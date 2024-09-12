@@ -5,7 +5,7 @@
 
 ### Description
 
-Sets hardware module to reset state then back to normal state. Delay about 300 cycles.
+Sets hardware module to reset state and then back to normal state. Delay about 300 cycles.
 
 ### Parameters
 
@@ -337,6 +337,7 @@ Initializes the BSP clock settings.
 - **`pll_clk`**: PLL clock setting.
     - ```576``` Mhz
     - ```480``` Mhz
+    - ```160``` Mhz 
 - **`core_clk`**: Core clock setting.
     - ```96``` Mhz
     - ```60``` Mhz
