@@ -52,7 +52,7 @@
 
 ### Description
 
-Initializes GPIO driver, configs port direction and contrl register, configs interrupt register if needed. All GPIO pins are initialized as input in. 
+Initializes GPIO driver, configs port direction and control register, configs interrupt register if needed. All GPIO pins are initialized as input in. 
 
 ### Parameters
 
