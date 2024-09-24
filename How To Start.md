@@ -1,6 +1,6 @@
 # SDK Overview
 
-Utilizing the Talpa SDK requires two operating systems: **Ubuntu 20.04 or later** for building the project, and **Windows 10 or later** for flashing the program into memory.
+The Talpa SDK requires two operating systems: **Ubuntu 20.04 or later** for building the project, and **Windows 10 or later** for flashing the program into memory.
 
 ## Building the Project - Under Linux
 
@@ -8,13 +8,12 @@ Utilizing the Talpa SDK requires two operating systems: **Ubuntu 20.04 or later*
 It is recommended to use the [Windows Subsystem for Linux (WSL)]() within the Windows environment and to connect to WSL using [Visual Studio Code (VSCode)](https://code.visualstudio.com/) for development purposes.
 
 ### Building the Project:
-    
+Build the example project by executing the following commands:
+ ```bash    
     tar -xzvf Talpa_SDK_package.tar.gz
     cd Talpa_SDK_package
     bash install.sh
 
-- Build the example project by executing the following commands:
-    ```bash
     cd Talpa_SDK/project
     bash createNBF.sh
     ```
