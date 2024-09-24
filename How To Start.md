@@ -16,7 +16,7 @@ Build the example project by executing the following commands:
 
     cd Talpa_SDK/project
     bash createNBF.sh
-    ```
+ ```
 
 ## Flashing the Program - Under Windows
 
