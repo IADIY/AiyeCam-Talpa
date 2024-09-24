@@ -8,7 +8,6 @@ Utilizing the Talpa SDK requires two operating systems: **Ubuntu 20.04 or later*
 It is recommended to use the [Windows Subsystem for Linux (WSL)]() within the Windows environment and to connect to WSL using [Visual Studio Code (VSCode)](https://code.visualstudio.com/) for development purposes.
 
 ### Building the Project
-- Download the `Talpa_SDK_Package` from [here](), move it to your **Linux system**, and execute the following commands:
     ```bash
     tar -xzvf Talpa_SDK_package.tar.gz
     cd Talpa_SDK_package
