@@ -20,8 +20,8 @@ Build the example project by executing the following commands:
 
 ## Flashing the Program - Under Windows
 
-- Download the `CH341A Driver` from [here]() on your Windows system.
-- Download the `SPI Flasher` from [here]() on your Windows system.
+- Download the `CH341A Driver` from [here](http://122.116.81.208/opencart/image/catalog/IADIY/products/camera-module/ai-camera-module/Download/CH341A_Driver_Win.zip) on your Windows system.
+- Download the `SPI Flasher` from [here](http://122.116.81.208/opencart/image/catalog/IADIY/products/camera-module/ai-camera-module/Download/CH341A_Programmer.zip) on your Windows system.
 - Move the `.nbf` file under `Talpa_SDK/project` to your Windows system.
 - Set the CPU to the reset state[*](#note-for-aiyecam-talpa-db-users-simply-press-the-reset-button-on-the-board-see-picture-below), select the `.nbf` file that was moved to your Windows system in the previous step, and click the `Update` icon to flash the program into memory.
 
